@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #090514;
+  --color-secondary-bg: #110B29;
+  --color-card: rgba(17, 11, 41, 0.6);
+  --color-card-hover: rgba(28, 19, 58, 0.7);
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-foreground: #F5F7FA;
+  --color-muted-foreground: #94A3B8;
+  
+  --color-accent-adaptive: #10B981;
+  --color-accent-static: #0EA5E9;
+  --color-accent-warning: #F59E0B;
+  --color-accent-drift: #EC4899;
+  --color-accent-critical: #F43F5E;
+  --color-accent-neutral: #8B5CF6;
+
+  --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 260 40% 6%;
+    --foreground: 210 40% 98%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.15), transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(14, 165, 233, 0.15), transparent 25%);
+    background-attachment: fixed;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background-color: var(--color-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  }
+  
+  .glass-card:hover {
+    transform: translateY(-2px);
+    background-color: var(--color-card-hover);
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 15px rgba(139, 92, 246, 0.1);
+  }
+}
